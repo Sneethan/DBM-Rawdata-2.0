@@ -1,0 +1,134 @@
+{
+  "name": "work",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "tfdKU",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Claim Pay",
+          "type": "PRIMARY",
+          "id": "msg-button-625bee0",
+          "row": "",
+          "url": "",
+          "emoji": "💲",
+          "mode": "PERSONAL",
+          "time": "",
+          "actions": [
+            {
+              "storage": "1",
+              "varName": "money",
+              "min": "1",
+              "max": "2500",
+              "name": "Generate Random Number"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Work",
+                  "url": "",
+                  "color": "",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Thank you for working, you have earned **$${tempVars(\"money\")}**.",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "msg",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "dataName": "money",
+              "defaultVal": "0",
+              "storage": "1",
+              "varName2": "oldbal",
+              "name": "Store Member Data"
+            },
+            {
+              "FirstNumber": "${tempVars(\"oldbal\")}",
+              "info": "0",
+              "SecondNumber": "${tempVars(\"money\")}",
+              "storage": "1",
+              "varName": "newbal",
+              "name": "Basic Math Operation"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "dataName": "money",
+              "changeType": "0",
+              "value": "tempVars(\"newbal\")",
+              "name": "Control Member Data"
+            },
+            {
+              "storage": "1",
+              "varName": "msg",
+              "type": "all",
+              "disable": "disable",
+              "searchValue": "",
+              "name": "Disable Buttons and Selects"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Work",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Press the button to claim your pay.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Work once every 20 minutes."
+}

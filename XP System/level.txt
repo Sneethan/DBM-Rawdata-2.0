@@ -1,0 +1,213 @@
+{
+  "name": "level",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "aDlYf",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "mem.tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "mem.avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "4",
+      "varName": "user",
+      "comparison": "0",
+      "value": "",
+      "branch": {
+        "iftrue": "2",
+        "iffalse": "0",
+        "iftrueVal": "11"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "avatar1",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "level",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "level1",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "experience",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "experience1",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "50",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"experience1\")}",
+      "storage": "1",
+      "varName": "experiencenew1",
+      "name": "Basic Math Operation"
+    },
+    {
+      "title": "",
+      "author": "Level",
+      "color": "2f3136",
+      "url": "",
+      "authorIcon": "https://icons.iconarchive.com/icons/inipagi/job-seeker/512/level-icon.png",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"avatar1\")}",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "emb1",
+      "name": "Create Embed Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2f3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "${tempVars(\"avatar1\")}",
+          "description": "You have level **${tempVars(\"level1\")}**\nAnd in **${tempVars(\"experiencenew1\")}** messages you get a levelUp",
+          "fields": [],
+          "author": "Level",
+          "authorUrl": "",
+          "authorIcon": "https://icons.iconarchive.com/icons/inipagi/job-seeker/512/level-icon.png",
+          "footerText": "${tempVars(\"mem.tag\")}",
+          "footerIconUrl": "${tempVars(\"avatar1\")}"
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "16",
+      "storage": "1",
+      "varName2": "avatar2",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "level",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "level2",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "experience",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "experience2",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "50",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"experience2\")}",
+      "storage": "1",
+      "varName": "experiencenew2",
+      "name": "Basic Math Operation"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2f3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "${tempVars(\"avatar2\")}",
+          "description": "The user ${slashParams(\"user\")} has level **${tempVars(\"level2\")}**.\nAnd gets a level up in **${tempVars(\"experiencenew2\")}** messages.",
+          "fields": [],
+          "author": "Level",
+          "authorUrl": "",
+          "authorIcon": "https://icons.iconarchive.com/icons/inipagi/job-seeker/512/level-icon.png",
+          "footerText": "${tempVars(\"mem.tag\")}",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "Check another user's level",
+      "type": "USER",
+      "required": false,
+      "choices": null
+    }
+  ],
+  "description": "View your or another user's rank."
+}

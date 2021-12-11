@@ -1,0 +1,139 @@
+{
+  "name": "send",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "xFZrC",
+  "actions": [
+    {
+      "user": "1",
+      "varName": "",
+      "info": "4",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Store User Info"
+    },
+    {
+      "user": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "username",
+      "name": "Store User Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbal",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "oldbal",
+      "comparison": "4",
+      "value": "slashParams(\"amount\")",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldbal\")}",
+      "info": "1",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newbal_user",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbal2",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldbal2\")}",
+      "info": "0",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newbal_paid",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "changeType": "0",
+      "value": "tempVars(\"newbal_user\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "money",
+      "changeType": "0",
+      "value": "tempVars(\"newbal_paid\")",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Send Money",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "${tempVars(\"avatar\")}",
+          "description": "You have sent $${slashParams(\"amount\")} to ${slashParams(\"amount\")}.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Pay another user.",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "amount",
+      "description": "",
+      "type": "INTEGER",
+      "required": true,
+      "choices": null
+    }
+  ]
+}

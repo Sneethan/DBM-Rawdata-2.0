@@ -1,0 +1,136 @@
+{
+  "name": "withdraw",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "LsXLU",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "mem.tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "mem.avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbank",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbal",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "oldbank",
+      "comparison": "4",
+      "value": "slashParams(\"amount\")",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldbank\")}",
+      "info": "1",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newbank",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldbal\")}",
+      "info": "0",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newbal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "changeType": "0",
+      "value": "tempVars(\"newbank\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "changeType": "0",
+      "value": "tempVars(\"newbal\")",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Withdraw",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "you have withdrawn $${slashParams(\"amount\")} from the bank.\nYou have $${tempVars(\"newbank\")} left in your vault",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "_aliases": [
+    "dep",
+    "d",
+    "depo"
+  ],
+  "description": "WIthdraw money from you bank account.",
+  "parameters": [
+    {
+      "name": "amount",
+      "description": "The amount you are depositing",
+      "type": "INTEGER",
+      "required": true,
+      "choices": null
+    }
+  ]
+}

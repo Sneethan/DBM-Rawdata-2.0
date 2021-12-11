@@ -1,0 +1,258 @@
+{
+  "name": "deposit",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "OsMfS",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "level",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "currentlevellollll",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"currentlevellollll\")}",
+      "info": "2",
+      "SecondNumber": "2000",
+      "storage": "1",
+      "varName": "maxbanksnewww",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "maxbank",
+      "changeType": "0",
+      "value": "tempVars(\"maxbanksnewww\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "mem.tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "mem.avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "maxbank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "maxbank",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbal",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${slashParams(\"amount\")}",
+      "info": "0",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "valuweeee",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "maxbank",
+      "comparison": "4",
+      "value": "slashParams(\"amount\")",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "99",
+        "iffalseActions": [
+          {
+            "channel": "0",
+            "varName": "",
+            "message": "error - not enough bank",
+            "buttons": [],
+            "selectMenus": [],
+            "attachments": [],
+            "embeds": [],
+            "reply": true,
+            "ephemeral": false,
+            "tts": false,
+            "overwrite": false,
+            "dontSend": false,
+            "editMessage": "0",
+            "editMessageVarName": "",
+            "storage": "0",
+            "varName2": "",
+            "name": "Send Message"
+          }
+        ]
+      },
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "oldbal",
+      "comparison": "4",
+      "value": "slashParams(\"amount\")",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "99",
+        "iffalseActions": [
+          {
+            "channel": "0",
+            "varName": "",
+            "message": "error - not enough money",
+            "buttons": [],
+            "selectMenus": [],
+            "attachments": [],
+            "embeds": [],
+            "reply": true,
+            "ephemeral": false,
+            "tts": false,
+            "overwrite": false,
+            "dontSend": false,
+            "editMessage": "0",
+            "editMessageVarName": "",
+            "storage": "0",
+            "varName2": "",
+            "name": "Send Message"
+          }
+        ]
+      },
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldbank",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldmoney",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldbank\")}",
+      "info": "0",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newbank",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldmoney\")}",
+      "info": "1",
+      "SecondNumber": "${slashParams(\"amount\")}",
+      "storage": "1",
+      "varName": "newmoney",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "changeType": "0",
+      "value": "tempVars(\"newbank\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "changeType": "0",
+      "value": "tempVars(\"newmoney\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "money",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "finalmoney",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "finalbank",
+      "name": "Store Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Deposit",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Thank you, you deposited **$${slashParams(\"amount\")}**.\n\nYou now have **$${tempVars(\"finalbank\")}**/$${tempVars(\"maxbanksnewww\")} in the bank.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "${tempVars(\"mem.tag\")}",
+          "footerIconUrl": "${tempVars(\"mem.avatar\")}"
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "_aliases": [
+    "dep",
+    "d",
+    "depo"
+  ],
+  "description": "Deposit money into your bank",
+  "parameters": [
+    {
+      "name": "amount",
+      "description": "The amount you are depositing",
+      "type": "INTEGER",
+      "required": true,
+      "choices": null
+    }
+  ]
+}

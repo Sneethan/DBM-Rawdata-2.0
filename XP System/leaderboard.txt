@@ -1,0 +1,168 @@
+{
+  "name": "leaderboard",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PDIlD",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "mem.avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "mem.tag",
+      "name": "Store Member Info"
+    },
+    {
+      "File": "0",
+      "serverType": "0",
+      "dataName": "level",
+      "sort": "0",
+      "numberBoolean": "1",
+      "resultFormat": "') ' + '*' + Name + '*' + ' - ' + '**' + DataValue + '**'",
+      "resultInfo": "0",
+      "rank": "",
+      "resultType": "1",
+      "resultFrom": "",
+      "resultTo": "10",
+      "varName": "levelboard",
+      "storage": "1",
+      "name": "Store Data List MOD"
+    },
+    {
+      "File": "0",
+      "serverType": "0",
+      "dataName": "money",
+      "sort": "0",
+      "numberBoolean": "1",
+      "resultFormat": "') ' + '*' + Name + '*' + ' - ' + '**' + DataValue + '**'",
+      "resultInfo": "0",
+      "rank": "",
+      "resultType": "1",
+      "resultFrom": "",
+      "resultTo": "10",
+      "varName": "moneyboard",
+      "storage": "1",
+      "name": "Store Data List MOD"
+    },
+    {
+      "File": "0",
+      "serverType": "0",
+      "dataName": "bank",
+      "sort": "0",
+      "numberBoolean": "1",
+      "resultFormat": "') ' + '*' + Name + '*' + ' - ' + '**' + DataValue + '**'",
+      "resultInfo": "0",
+      "rank": "",
+      "resultType": "1",
+      "resultFrom": "",
+      "resultTo": "10",
+      "varName": "bankboard",
+      "storage": "1",
+      "name": "Store Data List MOD"
+    },
+    {
+      "storage": "1",
+      "varName": "emb1",
+      "fieldName": "Level",
+      "message": "${tempVars(\"levelboard\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "emb1",
+      "fieldName": "Money",
+      "message": "${tempVars(\"moneyboard\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "emb1",
+      "fieldName": "Bank",
+      "message": "${tempVars(\"bankboard\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "emb1",
+      "message": "${tempVars(\"mem.tag\")}",
+      "footerIcon": "${tempVars(\"mem.avatar\")}",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "emb1",
+      "channel": "0",
+      "varName2": "channel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2f3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [
+            {
+              "name": "Level",
+              "value": "${tempVars(\"levelboard\")}",
+              "inline": "false"
+            },
+            {
+              "name": "Money",
+              "value": "${tempVars(\"moneyboard\")}",
+              "inline": "false"
+            },
+            {
+              "name": "Bank",
+              "value": "${tempVars(\"bankboard\")}",
+              "inline": "false"
+            }
+          ],
+          "author": "Leaderboard",
+          "authorUrl": "https://img.icons8.com/bubbles/2x/leaderboard.png",
+          "authorIcon": "",
+          "footerText": "${tempVars(\"mem.tag\")}",
+          "footerIconUrl": "${tempVars(\"mem.avatar\")}"
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Shows the leaderboard for levels, money, and bank storage."
+}
