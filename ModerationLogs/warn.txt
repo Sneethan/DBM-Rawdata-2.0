@@ -1,0 +1,125 @@
+{
+  "name": "Warn",
+  "permissions": "MANAGE_MESSAGES",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "GgTIV",
+  "actions": [
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "warns",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "oldwarns",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"oldwarns\")}",
+      "info": "0",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "newwarns",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "dataName": "warns",
+      "changeType": "0",
+      "value": "tempVars(\"newwarns\")",
+      "name": "Control Member Data"
+    },
+    {
+      "user": "5",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store User Info"
+    },
+    {
+      "filename": "./warns/${tempVars(\"id\")}.json",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check if File Exists"
+    },
+    {
+      "input": "",
+      "format": ".json",
+      "filename": "${tempVars(\"id\")}",
+      "filepath": "./warns/",
+      "filepath2": "",
+      "filetask": "0",
+      "input2": "",
+      "togglestatus": "no",
+      "name": "File Control"
+    },
+    {
+      "input": "**#${tempVars(\"newwarns\")}** - ${slashParams(\"reason\")}",
+      "format": ".json",
+      "filename": "${tempVars(\"id\")}",
+      "filepath": "./warns/",
+      "filepath2": "",
+      "filetask": "2",
+      "input2": "",
+      "togglestatus": "no",
+      "name": "File Control"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2f3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Warned ${slashParams(\"user\")}. They now have **${tempVars(\"newwarns\")}** warns.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "reason",
+      "description": "",
+      "type": "STRING",
+      "required": true,
+      "choices": null
+    }
+  ],
+  "description": "Warn a user"
+}

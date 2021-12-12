@@ -1,0 +1,75 @@
+{
+  "name": "Message Deleted",
+  "temp": "msg",
+  "event-type": "18",
+  "_id": "nAsWD",
+  "actions": [
+    {
+      "message": "1",
+      "varName": "msg",
+      "info": "3",
+      "storage": "1",
+      "varName2": "author",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "msg",
+      "info": "4",
+      "storage": "1",
+      "varName2": "channel",
+      "name": "Store Message Info"
+    },
+    {
+      "channel": "103",
+      "varName": "918056068117069824",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Message Deleted",
+          "url": "",
+          "color": "2f3136",
+          "timestamp": "true",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [
+            {
+              "name": "Message sent by:",
+              "value": "${tempVars(\"author\")}",
+              "inline": "true"
+            },
+            {
+              "name": "In channel:",
+              "value": "${tempVars(\"channel\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Message content:",
+              "value": "```${tempVars(\"msg\")}```",
+              "inline": "false"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

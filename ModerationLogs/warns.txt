@@ -1,0 +1,123 @@
+{
+  "name": "Warns",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "Wefjm",
+  "actions": [
+    {
+      "user": "5",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store User Info"
+    },
+    {
+      "user": "5",
+      "varName": "user",
+      "info": "2",
+      "storage": "1",
+      "varName2": "username",
+      "name": "Store User Info"
+    },
+    {
+      "filename": "./warns/${tempVars(\"id\")}.json",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "7",
+      "name": "Check if File Exists"
+    },
+    {
+      "filename": "./warns/${tempVars(\"id\")}.json",
+      "storage": "1",
+      "varName2": "content",
+      "name": "Read File"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Warns - ${tempVars(\"username\")}",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "${tempVars(\"content\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Warns - ${tempVars(\"username\")}",
+          "url": "",
+          "color": "",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "This user has no warns.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    }
+  ],
+  "description": "View a user's warns"
+}
